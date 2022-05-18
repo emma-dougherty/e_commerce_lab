@@ -8,10 +8,9 @@ const Basket = ({basketItems}) => {
 
     return (
         <>
-        <h3>How do. Here be yer list o' stuff</h3> 
-        {listOfBasketItems}
+            <h3>How do. Here be yer list o' stuff in yer basket!</h3> 
+            {listOfBasketItems}
         </>
-        
     )
 }
 

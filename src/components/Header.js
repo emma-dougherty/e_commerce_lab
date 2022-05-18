@@ -8,12 +8,11 @@ const Header = ({user, listsArray, handleSelectChange }) => {
             <div>
                 <select onChange={handleSelectChange}>
                     <option key='0' value={listsArray[0]}>
-                        All items
+                        Here's the shop list, luv
                     </option>
                     <option key='1' value={listsArray[1]}>
                         Here's yer basket, luv
                     </option>
-
                 </select>
             </div>
         </div>

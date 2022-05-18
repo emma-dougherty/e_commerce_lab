@@ -10,9 +10,9 @@ const ItemsList = ({items, onAddtoBasketClick}) => {
     })
     return (
         <>
-        <ul>
-            {listOfItems}
-        </ul>
+            <ul>
+                {listOfItems}
+            </ul>
         </>
     )
 

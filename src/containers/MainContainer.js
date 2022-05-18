@@ -6,12 +6,12 @@ import Basket from '../components/Basket'
 
 const MainContainer = () => {
 
-
     const [items, setItems] = useState ([])
     const [user, setUser] = useState ({name: 'Dick Van Dyke'})
     const [basketItems, setBasketItems] = useState ([])
-    const listsArray = [items, basketItems]
     const [selectedList, setSelectedList] = useState([])
+    const listsArray = [items, basketItems]
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getItems()
@@ -31,18 +31,24 @@ const MainContainer = () => {
         const apiResponse = await fetch('https://fakestoreapi.com/products')
         const itemsData = await apiResponse.json()
         setItems(itemsData)
+        setLoading(false);
     }
+    
+    // Loading page while the API fetches
+    if (loading) {
+        return "Just you wait a tic luv, our page is loadin' I promise..."
+    };
 
     return (
         <>
         <Header user={user} listsArray={listsArray} handleSelectChange={handleSelectChange}/>
-
         <div>
-            {selectedList==basketItems ? <Basket basketItems={basketItems}/> : <ItemsList items={items} onAddtoBasketClick={onAddtoBasketClick}/>}
-            
-        
+            {
+                selectedList==basketItems 
+                ? <Basket basketItems={basketItems}/> 
+                : <ItemsList items={items} onAddtoBasketClick={onAddtoBasketClick}/>
+            }
         </div>
-        
         </>
     )
 }
